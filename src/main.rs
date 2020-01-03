@@ -1,6 +1,6 @@
 // 1. point of entry of the rust program
 fn main() {
-    f01();
+    f02();
 }
 
 // --- problems --- 
@@ -24,4 +24,27 @@ fn arit_progrs(d:u32, bound:u32) -> u32 {  // example 5,999
     let mut n = bound/d as u32;            // 199 = 999/5 as u32
     let mut n_last = n*d;                  // 995 = 199*5           
     n*(n_last+d)/2                         // 199(995+5)/2
+}
+
+
+// 2. Even Fibonacci numbers
+fn f02() {
+    let mut a = 1;                          // start the var a with 1 
+    let mut b = 2;                          // start the var b with 2 
+    let mut c = 0;                          // start the var c with value 0 
+
+    let mut s = 2;                          // var which hold the sum
+
+    while b < 4000000 {                     // while the value of b is under 4.000.000
+       c = a + b;                           // 3 = 1 + 2  
+
+       if c%2 == 0 {                        // if is even add c to s
+            s += c; 
+       }
+       a = b;                               // a = 2  
+       b = c;                               // b = 3  
+        
+    }
+    println!("s = {:?}", s);
+
 }
