@@ -1,6 +1,6 @@
 // 1. point of entry of the rust program
 fn main() {
-    f02();
+    f03();
 }
 
 // --- problems --- 
@@ -47,4 +47,22 @@ fn f02() {
     }
     println!("s = {:?}", s);
 
+}
+
+
+// 3. Large prime factor 
+fn f03() {
+    let mut num : u64= 600851475143;        // num from the problem  
+    let mut factor = 2;                     // to start with a factorial 
+
+    while num > 1 {                         // while num is 1 divide it by is factorial
+        if num % factor == 0{               
+            num /= factor;                  // 600851475143 = 600851475143 / 3
+        } 
+        else {
+            factor +=1;                     // 2 += 1 
+        }
+    }
+
+   println!("factor = {:?}", factor);       // print the last factor to get the largest
 }
