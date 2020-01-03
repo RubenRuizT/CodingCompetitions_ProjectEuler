@@ -1,6 +1,6 @@
 // 1. point of entry of the rust program
 fn main() {
-    f03();
+    f04();
 }
 
 // --- problems --- 
@@ -65,4 +65,21 @@ fn f03() {
     }
 
    println!("factor = {:?}", factor);       // print the last factor to get the largest
+}
+
+// 4.Largest palindrome product
+fn f04() {
+    let mut max :u32 = 0;                                           // this var will be use to get the max
+    for i in (1..999).rev(){                                        // do a reverse double loop   
+        for j in (1..999).rev(){            
+            let mut n : String = (i*j).to_string();                 // convert to string the i*j
+            let mut n_reversed : String= n.chars().rev().collect(); // assign to n_reversed the rev of n 
+            if n == n_reversed && n.parse::<u32>().unwrap()>max{    // if n==n_rev and is above max save it 
+               max = n.parse::<u32>().unwrap();                     // save it as u32 
+            }
+        }
+    }
+
+    println!("max = {:?}", max);                                    // print the max value  
+
 }
