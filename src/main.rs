@@ -3,7 +3,7 @@ use std::collections::HashMap;
 // 1. point of entry of the rust program
 fn main() {
 
-    f05(); 
+    f06(); 
 }
 
 
@@ -122,4 +122,16 @@ fn f_is_prime(x:i32) -> bool {                                      // function 
        }
    } 
    true                                                             // if not is divisible then return true, then is prime
-}
+} 
+
+
+fn f06() {
+    let mut n = 100.0;
+
+    let mut sum = n*((n+1.0)/2.0);
+
+    let mut square_sum = (2.0*n+1.0) * (n+1.0) * n/6.0;
+
+    println!("res = {:?}", (sum*sum)  - square_sum);
+    
+  }
