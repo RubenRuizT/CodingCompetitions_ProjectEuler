@@ -1,7 +1,11 @@
+use std::collections::HashMap; 
+
 // 1. point of entry of the rust program
 fn main() {
-    f04();
+
+    f05(); 
 }
+
 
 // --- problems --- 
 //1. Multiples of 3 and 5
@@ -82,4 +86,40 @@ fn f04() {
 
     println!("max = {:?}", max);                                    // print the max value  
 
+}
+ 
+fn f05() {                                                          // find the smallest number could be divided by each num from 1 to 20
+
+    let mut v = Vec::<f64>::new();                                  // create a new vector of floats to get the primes from 2..21 
+
+    for i in 2..21{                                                 // from 2..21 
+        if f_is_prime(i) == true{                                   // if is a prime num then 
+            v.push(i as f64);                                       // push it on the vector
+        }
+    }
+
+    let mut v_pow: Vec::<f64> = v                                   // create a new vector to put the powers
+            .iter()                                                 // convert to iter 
+            .map(|x| (20.0_f64)                                     // map to each variable
+            .log(*x as f64)                                         // make the log in base x of 20  
+            .floor())                                               // get the floor 
+            .collect();                                             // convert to vector
+
+    let mut res = 1.0;                                              // create var of res 
+    for it in v.iter().zip(v_pow.iter()){                           // create an iterator zipped wit v and v_pow to  
+        let (i,j) = it;                                             // split the tuple 
+        res *= i.powf(*j);                                          // res = 2.powf(4)
+    }
+
+    println!("res = {:?}", res as i64);                             // display the result 
+}
+
+
+fn f_is_prime(x:i32) -> bool {                                      // function to know if a number is prime. f_is_prine(11)
+   for i in (2..x).rev(){                                           // for each number in (2..10).rev 
+       if x % i == 0 {                                              // if is divisible 11 % 2 == 0
+           return false;                                            // return false
+       }
+   } 
+   true                                                             // if not is divisible then return true, then is prime
 }
